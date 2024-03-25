@@ -7,14 +7,14 @@ const { defineConfig } = require('vite');
  * https://vitejs.dev/config
  */
 const config = defineConfig({
-    root: Path.join(__dirname, 'src', 'renderer'),
+    root: Path.join(__dirname, 'web'),
     publicDir: 'public',
     server: {
         port: 8080,
     },
     open: false,
     build: {
-        outDir: Path.join(__dirname, 'build', 'renderer'),
+        outDir: Path.join(__dirname, 'build', 'web'),
         emptyOutDir: true,
     },
     plugins: [vuePlugin()],

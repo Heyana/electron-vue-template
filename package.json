@@ -2,13 +2,14 @@
   "name": "electron-vue-template",
   "version": "0.1.0",
   "description": "A minimal Electron + Vue application",
-  "main": "build/main/main.js",
+  "main": "build/desktop/main.js",
   "scripts": {
     "dev": "node scripts/dev-server.js",
     "build": "node scripts/build.js && electron-builder",
     "build:win": "node scripts/build.js && electron-builder --win",
     "build:mac": "node scripts/build.js && electron-builder --mac",
-    "build:linux": "node scripts/build.js && electron-builder --linux"
+    "build:linux": "node scripts/build.js && electron-builder --linux",
+    "build:nsis-win64": "node scripts/build.js && electron-forge package --platform=win32 --arch=x64 &&  cd setup/NSIS/ && makensis.exe win-setup-x64.nsi"
   },
   "repository": "https://github.com/deluze/electron-vue-template",
   "author": {
@@ -16,6 +17,10 @@
     "url": "https://github.com/Deluze"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-dmg": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
     "@vitejs/plugin-vue": "^4.4.1",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
@@ -25,6 +30,7 @@
     "vite": "^4.5.0"
   },
   "dependencies": {
+    "js-funcs": "^0.0.93",
     "vue": "^3.3.8"
   }
 }

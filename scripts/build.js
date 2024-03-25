@@ -13,7 +13,7 @@ function buildRenderer() {
 }
 
 function buildMain() {
-    const mainPath = Path.join(__dirname, '..', 'src', 'main');
+    const mainPath = Path.join(__dirname, '..', 'desktop');
     return compileTs(mainPath);
 }
 

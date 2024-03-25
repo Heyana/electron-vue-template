@@ -30,7 +30,7 @@ async function startElectron() {
     }
 
     try {
-        await compileTs(Path.join(__dirname, '..', 'src', 'main'));
+        await compileTs(Path.join(__dirname, '..', 'desktop'));
     } catch {
         console.log(Chalk.redBright('Could not start Electron because of the above typescript error(s).'));
         electronProcessLocker = false;
@@ -38,7 +38,7 @@ async function startElectron() {
     }
 
     const args = [
-        Path.join(__dirname, '..', 'build', 'main', 'main.js'),
+        Path.join(__dirname, '..', 'build', 'desktop', 'main.js'),
         rendererPort,
     ];
     electronProcess = ChildProcess.spawn(Electron, args);
@@ -52,7 +52,7 @@ async function startElectron() {
         process.stdout.write(Chalk.blueBright(`[electron] `) + Chalk.white(data.toString()))
     });
 
-    electronProcess.stderr.on('data', data => 
+    electronProcess.stderr.on('data', data =>
         process.stderr.write(Chalk.blueBright(`[electron] `) + Chalk.white(data.toString()))
     );
 
@@ -82,8 +82,8 @@ tsc does not copy static files, so copy them over manually for dev server.
 */
 function copy(path) {
     FileSystem.cpSync(
-        Path.join(__dirname, '..', 'src', 'main', path),
-        Path.join(__dirname, '..', 'build', 'main', path),
+        Path.join(__dirname, '..', 'desktop', path),
+        Path.join(__dirname, '..', 'build', 'desktop', path),
         { recursive: true }
     );
 }
@@ -104,7 +104,7 @@ async function start() {
     copyStaticFiles();
     startElectron();
 
-    const path = Path.join(__dirname, '..', 'src', 'main');
+    const path = Path.join(__dirname, '..', "desktop");
     Chokidar.watch(path, {
         cwd: path,
     }).on('change', (path) => {

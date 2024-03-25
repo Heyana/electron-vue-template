@@ -18,7 +18,7 @@ function createWindow() {
     mainWindow.loadURL(`http://localhost:${rendererPort}`);
   } else {
     console.log("Log-- ", app.getAppPath(), "app.getAppPath()");
-    mainWindow.loadFile(join(app.getAppPath()));
+    mainWindow.loadFile(join(app.getAppPath(), "web", "index.html"));
   }
 }
 

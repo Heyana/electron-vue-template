@@ -18,7 +18,7 @@
   "files": [
     "build/desktop/**/*",
     {
-      "from": "build/web",
+      "from": "dist/web",
       "to": "web",
       "filter": ["**/*"]
     },

@@ -1,0 +1,27 @@
+@import "./navie-ex.less";
+.f-r(@val) {
+  flex: @val;
+  min-width: @val * 10%;
+  max-width: @val * 10%;
+}
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-size: 16px;
+  overflow: hidden;
+  background-color: @menuBgc;
+}
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+div {
+  box-sizing: border-box;
+  font-family: "PingFang SC";
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #fff;
+}

@@ -11,12 +11,14 @@ function createWindow() {
       contextIsolation: true,
     },
   });
-
+  // 在这里打开 DevTools
+  mainWindow.webContents.openDevTools({ mode: "undocked" });
   if (process.env.NODE_ENV === "development") {
     const rendererPort = process.argv[2];
     mainWindow.loadURL(`http://localhost:${rendererPort}`);
   } else {
-    mainWindow.loadFile(join(app.getAppPath(), "web", "index.html"));
+    console.log("Log-- ", app.getAppPath(), "app.getAppPath()");
+    mainWindow.loadFile(join(app.getAppPath()));
   }
 }
 

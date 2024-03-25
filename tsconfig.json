@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "./build/web/",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2017",
+    "types": [
+      "vite/client"
+    ],
+    "paths": {
+      "@web/*": [
+        "web/*"
+      ],
+      "@desktop/*": [
+        "desktop/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "customTypes/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
